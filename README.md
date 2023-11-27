@@ -33,7 +33,7 @@ The project is structured into three main sections:
 2. Clone the repository:
 
     ```bash
-    git clone [<repository_url>](https://github.com/kawther1010/metro.git)
+    git clone https://github.com/kawther1010/metro.git
     cd metro
     ```
 
