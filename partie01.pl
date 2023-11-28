@@ -4,9 +4,10 @@ addh([H1, M1], Minutes, [H2, M2]) :-
     H2 is TotalMinutes div 60,
     M2 is TotalMinutes mod 60.
 
-affiche([H, M]) :-
-    format('~|~`0t~d~2+:~|~`0t~d~2+', [H, M]).
-
+affiche([X, Y]) :-
+    (X >= 0, X =< 23),
+    (Y >= 0, Y =< 59),
+    format('~|~`0t~d~2+:~|~`0t~d~2+', [X, Y]).
 
 % EXERCICE 02
 lig(Arret1,Arret2,Ligne):- ligne(Ligne,_,L1,_,_), lig1(Arret1,L1),lig1(Arret2,L1),!.
