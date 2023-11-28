@@ -1,13 +1,8 @@
 % EXERCICE 01
-addh([X,Y],_,[X,Y]).
-addh([X,Y],M,[R,S]):- Y1 is (Y + M) mod 60,
-			A is (Y + M) // 60,
-			X1 is X + A,
-			X1=R, Y1=S.
-
-addh1([H1, M1], M, [H2, M2]) :- H3 is (M1 + M) // 60,
-				H2 is (H1 + H3) mod 24,
-				M2 is (M1 + M) mod 60.
+addh([H1, M1], Minutes, [H2, M2]) :-
+    TotalMinutes is H1 * 60 + M1 + Minutes,
+    H2 is TotalMinutes div 60,
+    M2 is TotalMinutes mod 60.
 
 affiche([H, M]) :-
     format('~|~`0t~d~2+:~|~`0t~d~2+', [H, M]).

@@ -1,0 +1,41 @@
+# EXERCICE 01
+?- addh([13, 34], 30, Result).
+% Expected Result: Result = [14, 4].
+
+?- addh([10, 14], 25, Result).
+% Expected Result: [10, 14]
+
+?- affiche([5, 37]).
+% Expected Result: 05:37.
+
+
+# EXERCICE 02
+?- lig(mairie_lilas, telegraphe, 11).
+% Expected Result: true.
+
+?- lig(jaures, la_chapelle, 2).
+% Expected Result: false.
+
+?- ligtot(pere_lachaise, bastille, 5, [5, 30]).
+% Expected Result: false.
+
+?- ligtot(mairie_lilas, chatelet, 11, [5, 10]).
+% Expected Result: true.
+
+?- ligtard(pere_lachaise, avron, 2, [5, 10]).
+% Expected Result: true.
+
+
+# EXERCICE 03
+?- itinTot(porte_lilas, gare_du_nord, [5, 0], Result).
+% Expected Result: Result = [[porte_lilas, [5, 10], gare_du_nord, [5, 30]], ... ].
+
+?- itinTot(place_fetes, republique, [5, 0], Result).
+% Expected Result: Result = [[place_fetes, [5, 15], republique, [5, 30]], ... ].
+
+
+?- itinTard(porte_lilas, gare_du_nord, [5, 45], Result).
+% Expected Result: Result = [[porte_lilas, [5, 55], gare_du_nord, [6, 15]], ... ].
+
+?- itinTard(place_fetes, republique, [6, 0], Result).
+% Expected Result: Result = [[place_fetes, [6, 15], republique, [6, 30]], ... ].

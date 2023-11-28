@@ -1,3 +1,8 @@
+% EXERCICE 01
+addh1([H1, M1], M, [H2, M2]) :- H3 is (M1 + M) // 60,
+				H2 is (H1 + H3) mod 24,
+				M2 is (M1 + M) mod 60.
+
 % EXERCICE 03
 itintot(Arret1, Arret2, Horaire, Parcours, Transport, Long):- chercheligne(Arret1, L1), chercheligne(Arret2, L2),
 						inter(L1,L2,L3), postparcours(Arret1, Arret2, 0,Horaire, L1, L2, L3, Transport, Long, Parcours).
