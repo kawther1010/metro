@@ -1,14 +1,14 @@
 % EXERCICE 01
 addh1([H1, M1], M, [H2, M2]) :- H3 is (M1 + M) // 60,
-				H2 is (H1 + H3) mod 24,
-				M2 is (M1 + M) mod 60.
+	H2 is (H1 + H3) mod 24,
+	M2 is (M1 + M) mod 60.
 
 % EXERCICE 03
 itintot(Arret1, Arret2, Horaire, Parcours, Transport, Long):- chercheligne(Arret1, L1), chercheligne(Arret2, L2),
-						inter(L1,L2,L3), postparcours(Arret1, Arret2, 0,Horaire, L1, L2, L3, Transport, Long, Parcours).
+	inter(L1,L2,L3), postparcours(Arret1, Arret2, 0,Horaire, L1, L2, L3, Transport, Long, Parcours).
 
 itintard(Arret1, Arret2, Horaire, Parcours, Transport, Long):- chercheligne(Arret1, L1), chercheligne(Arret2, L2),
-						inter(L1,L2,L3), postparcours(Arret1, Arret2, 1,Horaire, L1, L2, L3, Transport, Long, Parcours).
+	inter(L1,L2,L3), postparcours(Arret1, Arret2, 1,Horaire, L1, L2, L3, Transport, Long, Parcours).
 						
 chercheligne(Arret, L):- findall(X, inlig(Arret, _, X) , L).
 
@@ -22,14 +22,15 @@ postparcours(A,B,_,H,L1,L2,_,_,_,_):- parcours(A ,B , H, L1, L2, [], L), nl, iti
 
 parcours(_, _, _, [], _, X, X):- !.
 parcours(A, B, H, [X|Y], L, Aux, R):- ligne(X, _, P, _, _), search_parcours(P, L, [], [], Ls), 
-					cross(X, Ls, R1), R3 = [R1], append(R3, Aux, R2),
-					parcours(A, B, H, Y, L, R2, R).
+	cross(X, Ls, R1), R3 = [R1], append(R3, Aux, R2),
+	parcours(A, B, H, Y, L, R2, R).
 parcours(A, B, H, [_|Y], L, Aux, R):- parcours(A, B, H, Y, L, Aux, R).
 
 search_parcours([], _, _, L2, L2):- !.
 search_parcours([[X, _]|Y], Lfin, Visit, L2, Ret):- chercheligne(X, L3),
-						veriflist(L3, Lfin, R), cross(X, R, L), addlist(L, L2, L4),
-						!,search_parcours(Y, Lfin, Visit, L4, Ret).
+	veriflist(L3, Lfin, R), cross(X, R, L), addlist(L, L2, L4),
+	!,search_parcours(Y, Lfin, Visit, L4, Ret).
+
 search_parcours([_|Y], Lfin, Visit, L2, Ret):- !,search_parcours(Y, Lfin, Visit, L2, Ret).
 
 veriflist([X|_], L2, R):- member(X,L2), R = X.
@@ -93,6 +94,11 @@ stationitin(A, S, B, L1, L2):- ligne(L1, _, P, _, _), affiche_station1(A, S, L1,
 		
 affichage_stationitin([], Aux, Aux):- !.
 affichage_stationitin([[A, T]|Y], Aux, R):- write('~ '), write(A), write(' de durée '), write(T), write(' min'), nl, Aux1 is Aux + T, affichage_stationitin(Y, Aux1, R).
+
+
+
+
+
 
 
 % EXERCICE 04

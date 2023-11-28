@@ -1,7 +1,7 @@
 % EXERCICE 01
 addh([H1, M1], Minutes, [H2, M2]) :-
     TotalMinutes is H1 * 60 + M1 + Minutes,
-    H2 is TotalMinutes div 60,
+    H2 is TotalMinutes // 60,
     M2 is TotalMinutes mod 60.
 
 affiche([X, Y]) :-
